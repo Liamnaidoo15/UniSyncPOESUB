@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.UniSyncPOE" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/unisync_primary</item>
+        <item name="colorPrimaryVariant">@color/unisync_primary_light</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
+    <style name="Theme.UniSyncPOE" parent="Base.Theme.UniSyncPOE" />
+    
+    <style name="Theme.UniSyncPOE.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    
+    <style name="Theme.UniSyncPOE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

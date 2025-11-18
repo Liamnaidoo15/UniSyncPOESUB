@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <application
+        android:name=".UniSyncApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UniSyncPOE"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.dashboard.DashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.dashboard.DashboardActivity" />
+        
+        <activity
+            android:name=".ui.attendance.QRScannerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.admin.AdminDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.StudentDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.ViewResourcesActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.student.StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.SubmitAssignmentActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.student.StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.TimetableActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.student.StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.GradesActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.student.StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.student.AnnouncementsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.student.StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.messages.SendMessageActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.messages.MessagesActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.messages.MessagesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.messages.ConversationActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.messages.MessagesActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.lecturer.LecturerDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.lecturer.UploadResourcesActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.lecturer.LecturerDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.lecturer.MarkAssignmentsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.lecturer.LecturerDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.lecturer.LecturerAttendanceActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.lecturer.LecturerDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.lecturer.StudentProgressActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.lecturer.LecturerDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.admin.UserManagementActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.admin.AdminDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.admin.AssignRolesActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.admin.AdminDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.admin.AcademicSettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.admin.AdminDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.admin.SecurityLogsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.admin.AdminDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.ModuleManagementActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.AssignLecturerActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.ApprovalsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.ReportsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ui.coordinator.MonitorActivityActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.coordinator.ProgramCoordinatorDashboardActivity"
+            android:screenOrientation="portrait" />
+        
+        <!-- Firebase Cloud Messaging -->
+        <service
+            android:name=".service.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

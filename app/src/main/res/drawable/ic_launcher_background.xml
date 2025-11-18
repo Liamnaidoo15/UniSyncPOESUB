@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Rounded square with green gradient background -->
+    <path
+        android:pathData="M18,18 L90,18 A18,18 0 0,1 108,36 L108,90 A18,18 0 0,1 90,108 L18,108 A18,18 0 0,1 0,90 L0,36 A18,18 0 0,1 18,18 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108">
+                <item
+                    android:color="#66BB6A"
+                    android:offset="0.0" />
+                <item
+                    android:color="#4CAF50"
+                    android:offset="0.5" />
+                <item
+                    android:color="#388E3C"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

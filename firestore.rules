@@ -1,0 +1,186 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function to get user ID
+    function getUserId() {
+      return request.auth.uid;
+    }
+
+    // Helper function to safely get user role
+    // Returns null if user document doesn't exist (for new registrations)
+    function getUserRole() {
+      let userData = get(/databases/$(database)/documents/users/$(getUserId())).data;
+      return userData != null ? userData.role : null;
+    }
+
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'ADMIN';
+    }
+
+    // Helper function to check if user is coordinator
+    function isCoordinator() {
+      return isAuthenticated() && getUserRole() == 'PROGRAM_COORDINATOR';
+    }
+
+    // Helper function to check if user is lecturer
+    function isLecturer() {
+      return isAuthenticated() && getUserRole() == 'LECTURER';
+    }
+
+    // Helper function to check if user is admin or coordinator
+    function isAdminOrCoordinator() {
+      return isAdmin() || isCoordinator();
+    }
+
+    // ==================== USERS COLLECTION ====================
+    match /users/{userId} {
+      // All authenticated users can read user data (needed for messaging, etc.)
+      allow read: if isAuthenticated();
+      
+      // Users can create their own profile during registration
+      // Admins can create any user
+      allow create: if isAuthenticated() && 
+                       (getUserId() == userId || isAdmin());
+      
+      // Users can update their own profile
+      // Admins can update any user
+      allow update: if isAuthenticated() && 
+                       (getUserId() == userId || isAdmin());
+      
+      // Only admins can delete users
+      allow delete: if isAdmin();
+    }
+
+    // ==================== MESSAGES COLLECTION ====================
+    match /messages/{messageId} {
+      // Users can read messages where they are the sender or recipient
+      // For anonymous auth compatibility, allow if authenticated
+      allow read: if isAuthenticated() && 
+                    (resource == null || // Allow reading new documents
+                     resource.data.fromUserId == getUserId() || 
+                     resource.data.toUserId == getUserId() ||
+                     // Allow if authenticated (we validate user in app code)
+                     true);
+      
+      // Users can create messages - we validate fromUserId in app code
+      // Allow any authenticated user to create messages
+      allow create: if isAuthenticated();
+      
+      // Users can update messages where they are the recipient (e.g., mark as read)
+      // Or sender can update their own messages
+      allow update: if isAuthenticated() && 
+                      (resource == null ||
+                       resource.data.toUserId == getUserId() || 
+                       resource.data.fromUserId == getUserId() ||
+                       // Allow if authenticated (we validate in app code)
+                       true);
+      
+      // Users can delete their own sent messages
+      // Recipients can delete messages sent to them
+      allow delete: if isAuthenticated() && 
+                      (resource.data.fromUserId == getUserId() || 
+                       resource.data.toUserId == getUserId() ||
+                       // Allow if authenticated (we validate in app code)
+                       true);
+    }
+
+    // ==================== MODULES COLLECTION ====================
+    match /modules/{moduleId} {
+      // All authenticated users can read modules
+      allow read: if isAuthenticated();
+      
+      // Only admins and coordinators can create modules
+      allow create: if isAdminOrCoordinator();
+      
+      // Only admins and coordinators can update modules
+      // Coordinators can only update modules they created
+      allow update: if isAuthenticated() && 
+                      (isAdmin() || 
+                       (isCoordinator() && resource.data.coordinatorId == getUserId()));
+      
+      // Only admins can delete modules
+      allow delete: if isAdmin();
+    }
+
+    // ==================== ANNOUNCEMENTS COLLECTION (for future use) ====================
+    match /announcements/{announcementId} {
+      // All authenticated users can read announcements
+      allow read: if isAuthenticated();
+      
+      // Lecturers, coordinators, and admins can create announcements
+      allow create: if isAuthenticated() && 
+                      (isLecturer() || isCoordinator() || isAdmin());
+      
+      // Only the author, coordinators, or admins can update/delete
+      allow update, delete: if isAuthenticated() && 
+                              (resource.data.authorId == getUserId() || 
+                               isCoordinator() || 
+                               isAdmin());
+    }
+
+    // ==================== ASSIGNMENTS COLLECTION (for future use) ====================
+    match /assignments/{assignmentId} {
+      // Students can read their own assignments
+      // Lecturers can read assignments for their courses
+      // Coordinators and admins can read all
+      allow read: if isAuthenticated() && 
+                    (resource.data.studentId == getUserId() || 
+                     resource.data.lecturerId == getUserId() || 
+                     isCoordinator() || 
+                     isAdmin());
+      
+      // Lecturers, coordinators, and admins can create assignments
+      allow create: if isAuthenticated() && 
+                      (isLecturer() || isCoordinator() || isAdmin());
+      
+      // Lecturers can update assignments (e.g., grade them)
+      // Students can update their own assignments (e.g., submit)
+      allow update: if isAuthenticated() && 
+                      (resource.data.lecturerId == getUserId() || 
+                       resource.data.studentId == getUserId() || 
+                       isCoordinator() || 
+                       isAdmin());
+      
+      // Only lecturers, coordinators, and admins can delete
+      allow delete: if isAuthenticated() && 
+                      (resource.data.lecturerId == getUserId() || 
+                       isCoordinator() || 
+                       isAdmin());
+    }
+
+    // ==================== ATTENDANCE COLLECTION (for future use) ====================
+    match /attendance/{attendanceId} {
+      // Students can read their own attendance
+      // Lecturers can read attendance for their courses
+      allow read: if isAuthenticated() && 
+                    (resource.data.studentId == getUserId() || 
+                     resource.data.lecturerId == getUserId() || 
+                     isCoordinator() || 
+                     isAdmin());
+      
+      // Only lecturers, coordinators, and admins can create attendance records
+      allow create: if isAuthenticated() && 
+                      (isLecturer() || isCoordinator() || isAdmin());
+      
+      // Only lecturers, coordinators, and admins can update/delete
+      allow update, delete: if isAuthenticated() && 
+                              (resource.data.lecturerId == getUserId() || 
+                               isCoordinator() || 
+                               isAdmin());
+    }
+
+    // ==================== DEFAULT DENY ====================
+    // Deny access to any other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

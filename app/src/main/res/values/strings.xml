@@ -1,0 +1,182 @@
+<resources>
+    <string name="app_name">UniSync</string>
+    
+    <!-- Tabs -->
+    <string name="tab_timetable">Timetable</string>
+    <string name="tab_announcements">Announcements</string>
+    <string name="tab_assignments">Assignments</string>
+    <string name="tab_attendance">Attendance</string>
+    <string name="tab_network">Network</string>
+    
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="use_biometric">Use Biometric</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+    <string name="demo_accounts_info">Demo Accounts:\nStudent: student@unisync.com\nLecturer: lecturer@unisync.com\nCoordinator: coordinator@unisync.com\nAdmin: admin@unisync.com\nPassword: [role]123</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="biometric_authentication">Biometric Authentication</string>
+    <string name="language">Language</string>
+    <string name="select_language">Select Language</string>
+    <string name="language_changed">Language changed. Please restart the app for full effect.</string>
+    <string name="about">About</string>
+    <string name="sync">Sync</string>
+    <string name="logout">Logout</string>
+    
+    <!-- Common -->
+    <string name="loading">Loading…</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    
+    <!-- Firebase -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    
+    <!-- Admin Dashboard -->
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="admin_dashboard_welcome">System Administrator</string>
+    <string name="admin_dashboard_subtitle">Manage and oversee the UniSync platform</string>
+    <string name="user_statistics">User Statistics</string>
+    <string name="total_users">Total Users</string>
+    <string name="students">Students</string>
+    <string name="lecturers">Lecturers</string>
+    <string name="admins">Admins</string>
+    <string name="admin_features">Admin Features</string>
+    
+    <!-- Admin Features -->
+    <string name="manage_user_accounts">Manage User Accounts</string>
+    <string name="manage_user_accounts_desc">Add, edit, and manage user accounts</string>
+    <string name="assign_roles_permissions">Assign Roles &amp; Permissions</string>
+    <string name="assign_roles_permissions_desc">Configure user roles and access permissions</string>
+    <string name="configure_system_settings">Configure System Settings</string>
+    <string name="configure_system_settings_desc">Manage platform settings and preferences</string>
+    <string name="configure_academic_calendar">Configure Academic Calendar</string>
+    <string name="configure_academic_calendar_desc">Set up academic terms and schedules</string>
+    <string name="maintain_security_data">Security &amp; Data Integrity</string>
+    <string name="maintain_security_data_desc">Monitor security and ensure data integrity</string>
+    <string name="oversee_backups_performance">Backups &amp; Performance</string>
+    <string name="oversee_backups_performance_desc">Manage backups and system performance</string>
+    <string name="academic_settings">Academic Settings</string>
+    <string name="view_system_logs">System Logs</string>
+    
+    <!-- Coordinator Dashboard -->
+    <string name="coordinator_dashboard">Program Coordinator Dashboard</string>
+    <string name="coordinator_dashboard_welcome">Program Coordinator</string>
+    <string name="coordinator_dashboard_subtitle">Manage modules, lecturers, and academic programs</string>
+    <string name="coordinator_features">Coordinator Features</string>
+    
+    <!-- Coordinator Features -->
+    <string name="manage_modules_assessments">Manage Modules &amp; Assessments</string>
+    <string name="manage_modules_assessments_desc">Create and manage modules, assessments, and schedules</string>
+    <string name="allocate_lecturers_courses">Allocate Lecturers to Courses</string>
+    <string name="allocate_lecturers_courses_desc">Assign lecturers to courses and modules</string>
+    <string name="monitor_lecturer_student_activity">Monitor Activity</string>
+    <string name="monitor_lecturer_student_activity_desc">Track lecturer activity and student engagement</string>
+    <string name="approve_announcements_resources">Approve Content</string>
+    <string name="approve_announcements_resources_desc">Approve announcements, resources, and module content</string>
+    <string name="generate_program_reports">Generate Reports</string>
+    <string name="generate_program_reports_desc">Create program-level reports and analytics</string>
+    <string name="oversee_quality_assurance">Quality Assurance</string>
+    <string name="oversee_quality_assurance_desc">Oversee quality assurance and program standards</string>
+    <string name="manage_modules">Manage Modules</string>
+    <string name="assign_lecturer">Assign Lecturer</string>
+    <string name="approve_content">Approve Content</string>
+    <string name="monitor_activity">Monitor Activity</string>
+    
+    <!-- Student Dashboard -->
+    <string name="student_dashboard">Student Dashboard</string>
+    <string name="student_dashboard_welcome">Welcome, Student</string>
+    <string name="student_dashboard_subtitle">Access your timetable, assignments, and announcements</string>
+    <string name="student_features">Student Features</string>
+    
+    <!-- Student Features -->
+    <string name="view_modules_timetable">View Modules &amp; Timetable</string>
+    <string name="view_modules_timetable_desc">Access modules, timetable, announcements, and assessments</string>
+    <string name="submit_assignments">Submit Assignments</string>
+    <string name="submit_assignments_desc">Submit work and receive grades with feedback</string>
+    <string name="access_course_resources">Access Course Resources</string>
+    <string name="access_course_resources_desc">View study materials and learning resources</string>
+    <string name="communicate_with_lecturers">Communicate with Lecturers</string>
+    <string name="communicate_with_lecturers_desc">Message lecturers and coordinators</string>
+    <string name="track_academic_progress">Track Academic Progress</string>
+    <string name="track_academic_progress_desc">View progress and academic history</string>
+    
+    <!-- Lecturer Dashboard -->
+    <string name="lecturer_dashboard">Lecturer Dashboard</string>
+    <string name="lecturer_dashboard_welcome">Welcome, Lecturer</string>
+    <string name="lecturer_dashboard_subtitle">Manage your courses, students, and teaching materials</string>
+    <string name="lecturer_features">Lecturer Features</string>
+    
+    <!-- Lecturer Features -->
+    <string name="upload_learning_materials">Upload Learning Materials</string>
+    <string name="upload_learning_materials_desc">Upload notes, assessments, and learning resources</string>
+    <string name="manage_class_attendance">Manage Class Attendance</string>
+    <string name="manage_class_attendance_desc">Track and manage student attendance records</string>
+    <string name="mark_student_submissions">Mark Student Submissions</string>
+    <string name="mark_student_submissions_desc">Review and provide feedback on student work</string>
+    <string name="communicate_with_students">Communicate with Students</string>
+    <string name="communicate_with_students_desc">Send announcements and messages to students</string>
+    <string name="track_student_progress">Track Student Progress</string>
+    <string name="track_student_progress_desc">Monitor student performance and escalate concerns</string>
+    
+    <!-- Lecturer Activity Strings -->
+    <string name="upload_resources">Upload Resources</string>
+    <string name="select_module">Select Module</string>
+    <string name="resource_title">Resource Title</string>
+    <string name="resource_description">Description</string>
+    <string name="select_file">Select File</string>
+    <string name="change_file">Change File</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="upload">Upload</string>
+    <string name="mark_assignments">Mark Assignments</string>
+    <string name="student_submissions">Student Submissions</string>
+    <string name="score">Score</string>
+    <string name="submit_grade">Submit Grade</string>
+    <string name="lecturer_attendance">Mark Attendance</string>
+    <string name="student_list">Student List</string>
+    <string name="submit_attendance">Submit Attendance</string>
+    <string name="student_progress">Student Progress</string>
+    <string name="last_submission">Last Submission</string>
+    <string name="progress_percentage">Progress</string>
+    <string name="announcements">Announcements</string>
+    <string name="refresh">Refresh</string>
+    
+    <!-- Student Activity Strings -->
+    <string name="view_resources">View Resources</string>
+    <string name="submit_assignment">Submit Assignment</string>
+    <string name="timetable">Timetable</string>
+    <string name="grades">Grades</string>
+    <string name="comments">Comments</string>
+    <string name="submit">Submit</string>
+    <string name="module">Module</string>
+    <string name="assessment">Assessment</string>
+    <string name="mark">Mark</string>
+    <string name="status">Status</string>
+    <string name="released">Released</string>
+    <string name="pending">Pending</string>
+    
+    <!-- Messaging Strings -->
+    <string name="send_message">Send Message</string>
+    <string name="messages">Messages</string>
+    <string name="conversation">Conversation</string>
+    <string name="to">To:</string>
+    <string name="subject">Subject:</string>
+    <string name="message">Message:</string>
+    <string name="send">Send</string>
+    <string name="no_conversations">No conversations yet</string>
+    <string name="no_messages">No messages yet</string>
+    <string name="please_select_recipient">Please select a recipient</string>
+</resources>

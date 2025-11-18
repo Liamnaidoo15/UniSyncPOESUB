@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">UniSync</string>
+    
+    <!-- Tabs -->
+    <string name="tab_timetable">Ishedyuli</string>
+    <string name="tab_announcements">Izimemezelo</string>
+    <string name="tab_assignments">Imisebenzi</string>
+    <string name="tab_attendance">Ukubekhona</string>
+    <string name="tab_network">Inethiwekhi</string>
+    
+    <!-- Auth -->
+    <string name="login">Ngena</string>
+    <string name="register">Bhalisa</string>
+    <string name="email">I-imeyili</string>
+    <string name="password">Iphasiwedi</string>
+    <string name="name">Igama</string>
+    <string name="confirm_password">Qinisekisa Iphasiwedi</string>
+    <string name="sign_in_with_google">Ngena nge-Google</string>
+    <string name="use_biometric">Sebenzisa Ubufakazi</string>
+    <string name="create_account">Dala I-akhawunti</string>
+    <string name="already_have_account">Usenayo i-akhawunti? Ngena</string>
+    <string name="dont_have_account">Awunawo i-akhawunti? Bhalisa</string>
+    
+    <!-- Settings -->
+    <string name="settings">Izilungiselelo</string>
+    <string name="dark_mode">Indlela Ebusuku</string>
+    <string name="biometric_authentication">Ubuqinisekiso Bobufakazi</string>
+    <string name="language">Ulimi</string>
+    <string name="select_language">Khetha Ulimi</string>
+    <string name="language_changed">Ulimi luyashintshile. Sicela uqale kabusha uhlelo ukuze kusebenze ngokuphelele.</string>
+    <string name="about">Mayelana</string>
+    <string name="sync">Vumelanisa</string>
+    <string name="logout">Phuma</string>
+    
+    <!-- Common -->
+    <string name="loading">Iyalayisha…</string>
+    <string name="error">Iphutha</string>
+    <string name="success">Impumelelo</string>
+    <string name="cancel">Khansela</string>
+    <string name="save">Gcina</string>
+    <string name="delete">Susa</string>
+    <string name="edit">Hlela</string>
+</resources>
+

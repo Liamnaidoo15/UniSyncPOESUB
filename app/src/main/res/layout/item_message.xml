@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Sent Message (Right aligned) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSentMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="80dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:maxWidth="280dp">
+
+            <TextView
+                android:id="@+id/tvSentSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvSentContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvSentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00"
+                android:textSize="10sp"
+                android:textColor="@android:color/white"
+                android:alpha="0.8"
+                android:layout_gravity="end" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Received Message (Left aligned) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardReceivedMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="80dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/background_light">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:maxWidth="280dp">
+
+            <TextView
+                android:id="@+id/tvReceivedFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From: Lecturer"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvReceivedSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvReceivedContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message content"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvReceivedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00"
+                android:textSize="10sp"
+                android:textColor="@color/text_secondary"
+                android:layout_gravity="end" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+

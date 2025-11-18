@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">UniSync</string>
+    
+    <!-- Tabs -->
+    <string name="tab_timetable">Rooster</string>
+    <string name="tab_announcements">Aankondigings</string>
+    <string name="tab_assignments">Opdragte</string>
+    <string name="tab_attendance">Teenwoordigheid</string>
+    <string name="tab_network">Netwerk</string>
+    
+    <!-- Auth -->
+    <string name="login">Teken In</string>
+    <string name="register">Registreer</string>
+    <string name="email">E-pos</string>
+    <string name="password">Wagwoord</string>
+    <string name="name">Naam</string>
+    <string name="confirm_password">Bevestig Wagwoord</string>
+    <string name="sign_in_with_google">Teken In Met Google</string>
+    <string name="use_biometric">Gebruik Biometriese</string>
+    <string name="create_account">Skep Rekening</string>
+    <string name="already_have_account">Het jy reeds \'n rekening? Teken In</string>
+    <string name="dont_have_account">Het jy nie \'n rekening nie? Registreer</string>
+    
+    <!-- Settings -->
+    <string name="settings">Instellings</string>
+    <string name="dark_mode">Donker Modus</string>
+    <string name="biometric_authentication">Biometriese Verifikasie</string>
+    <string name="language">Taal</string>
+    <string name="select_language">Kies Taal</string>
+    <string name="language_changed">Taal verander. Herlaai asseblief die app vir volledige effek.</string>
+    <string name="about">Oor</string>
+    <string name="sync">Sinkroniseer</string>
+    <string name="logout">Teken Uit</string>
+    
+    <!-- Common -->
+    <string name="loading">Laai…</string>
+    <string name="error">Fout</string>
+    <string name="success">Sukses</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="save">Stoor</string>
+    <string name="delete">Skrap</string>
+    <string name="edit">Wysig</string>
+</resources>
+
