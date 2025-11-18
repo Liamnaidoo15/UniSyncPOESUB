@@ -1,215 +1,281 @@
-# UniSync - University Management System
+UniSync – Android Mobile Application
 
-UniSync is a comprehensive mobile application designed to centralize key university operations for students, lecturers, and administrators. It provides streamlined access to timetables, announcements, assignments, attendance tracking, and campus networking — all in one unified platform.
+A modern Android application built using Kotlin, MVVM, and Jetpack libraries, designed for secure user access, cloud-based data synchronisation, real-time updates, and an intuitive user experience.
+This application forms part of my PROG7314 POE, implementing all required features such as SSO login, REST API integration, offline mode, push notifications, multi-language support, and more.
+
+## Table of Contents
+
+Overview
+
+Features
+
+Technology Stack
+
+System Architecture
+
+API Integration
+
+Offline Mode & Sync
+
+Push Notifications
+
+Multi-Language Support
+
+Installation Guide
+
+Screenshots
+
+Automated Testing (GitHub Actions)
+
+Release Notes
+
+How AI Was Used
+
+License
+
+## Overview
+
+UniSync is an Android application built to demonstrate backend integration, cloud features, secure authentication, and modern mobile development practices.
+The app communicates with a custom-built REST API hosted online and stores synchronized data in a cloud database.
+
+This project aligns with the requirements for the Programming 3D (PROG7314) Portfolio of Evidence, including:
+
+App design
+
+API creation & hosting
+
+Authentication & cloud integration
+
+GitHub workflows & testing
+
+Video demonstration
+
+Play Store preparation
 
 ## Features
+- Authentication
 
-### Core Features
-- ✅ **Secure Authentication**
-  - Firebase Authentication with SSO (Google Sign-In)
-  - Biometric authentication (Fingerprint/Face ID)
-  - Password-based authentication
-  - Role-based access control (Student, Lecturer, Admin)
+Single Sign-On (SSO) with Firebase
 
-- ✅ **QR Code Technology**
-  - Instant QR code scanning for attendance
-  - Dynamic QR code generation for classes
-  - Offline scanning with automatic sync when online
+Token-based authentication with hosted API
 
-- ✅ **Real-time Analytics**
-  - Live attendance tracking
-  - Comprehensive reporting system
-  - GPS location verification
-  - Geo-fencing capabilities
+Biometric Authentication (fingerprint/face unlock)
 
-- ✅ **Offline Support**
-  - Works without internet connection
-  - Automatic synchronization when online
-  - Local data storage with RoomDB
-  - Sync queue for pending operations
+- REST API Integration
 
-- ✅ **Modern UI/UX**
-  - Material Design 3 principles
-  - Responsive mobile interface
-  - Dark/Light theme support
-  - Smooth animations and transitions
+Fully hosted API (Render.com)
 
-- ✅ **Push Notifications**
-  - Firebase Cloud Messaging (FCM)
-  - Real-time notifications for announcements, assignments, and attendance
+CRUD operations
 
-- ✅ **Multi-language Support**
-  - English
-  - isiZulu
-  - Afrikaans
+JWT-secured endpoints
 
-### Student Portal
-- View personal timetables and upcoming classes
-- Receive announcements from lecturers and faculty
-- Track assignments with due dates and submission status
-- Monitor attendance records and progress analytics
-- Connect with peers and lecturers via discussion/networking hub
+Real-time synced data
 
-### Lecturer Portal
-- Post and manage announcements for courses
-- Create and update assignments with deadlines
-- Record and monitor student attendance
-- Communicate with students through the UniSync network hub
-- View analytics and student participation summaries
+- User Settings
 
-## Technical Stack
+Change personal preferences
 
-- **Language**: Kotlin
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Dependency Injection**: Hilt
-- **Database**: Room Database (SQLite)
-- **Networking**: Retrofit + OkHttp
-- **Authentication**: Firebase Auth + Google Sign-In
-- **Push Notifications**: Firebase Cloud Messaging
-- **Image Loading**: Glide
-- **QR Code**: ZXing
-- **Location Services**: Google Play Services Location
-- **Biometric**: AndroidX Biometric Library
+Update language
 
-## Project Structure
+Enable biometric login
 
-```
-app/
-├── src/
-│   ├── main/
-│   │   ├── java/com/example/unisyncpoe/
-│   │   │   ├── data/
-│   │   │   │   ├── local/          # Room database, DAOs
-│   │   │   │   ├── model/          # Data models
-│   │   │   │   ├── remote/         # API service, Retrofit
-│   │   │   │   └── repository/     # Repository layer
-│   │   │   ├── di/                 # Dependency injection modules
-│   │   │   ├── service/            # Firebase services
-│   │   │   ├── ui/                 # UI components
-│   │   │   │   ├── auth/           # Login, Registration
-│   │   │   │   ├── dashboard/     # Main dashboard
-│   │   │   │   ├── fragments/     # Tab fragments
-│   │   │   │   └── settings/      # Settings screen
-│   │   │   └── util/              # Utilities
-│   │   └── res/
-│   │       ├── values/            # English strings
-│   │       ├── values-zu/         # isiZulu strings
-│   │       └── values-af/         # Afrikaans strings
-│   └── test/                      # Unit tests
-```
+Manage notifications
 
-## Setup Instructions
+- Offline Mode + Sync
 
-### Prerequisites
-- Android Studio Hedgehog or later
-- JDK 11 or later
-- Android SDK (API 24+)
-- Firebase project with Authentication and Cloud Messaging enabled
+Local caching with RoomDB
 
-### Configuration
+Syncs automatically when reconnected
 
-1. **Firebase Setup**
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Authentication (Email/Password and Google Sign-In)
-   - Enable Cloud Messaging
-   - Download `google-services.json` and place it in `app/` directory
+Conflict-safe strategy
 
-2. **API Configuration**
-   - Update `API_BASE_URL` in `app/build.gradle.kts` with your backend API URL
-   - Or set it via build config field
+- Push Notifications
 
-3. **Google Sign-In**
-   - Update `default_web_client_id` in `strings.xml` with your Firebase Web Client ID
+Firebase Cloud Messaging (FCM)
 
-4. **Build and Run**
-   ```bash
-   ./gradlew assembleDebug
-   ./gradlew installDebug
-   ```
+Real-time alerts triggered from API
 
-## API Endpoints
+- Multi-Language Support
 
-The app expects a REST API with the following endpoints:
+Includes at least 2 South African languages, for example:
 
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user
-- `GET /api/announcements` - Get announcements
-- `POST /api/announcements` - Create announcement
-- `GET /api/assignments` - Get assignments
-- `POST /api/assignments` - Create assignment
-- `GET /api/attendance` - Get attendance records
-- `POST /api/attendance` - Mark attendance
-- `POST /api/qr-codes/generate` - Generate QR code
-- `POST /api/qr-codes/scan` - Scan QR code
+English
 
-## Testing
+isiZulu
 
-### Unit Tests
-Run unit tests with:
-```bash
-./gradlew test
-```
+Afrikaans (optional third language)
 
-### Instrumented Tests
-Run instrumented tests with:
-```bash
-./gradlew connectedAndroidTest
-```
+- Clean & Responsive UI
 
-## Building for Release
+Material You components
 
-1. Generate a signing key:
-   ```bash
-   keytool -genkey -v -keystore unisync-release.keystore -alias unisync -keyalg RSA -keysize 2048 -validity 10000
-   ```
+Modern design patterns
 
-2. Create `keystore.properties` in project root:
-   ```
-   storePassword=your_store_password
-   keyPassword=your_key_password
-   keyAlias=unisync
-   storeFile=unisync-release.keystore
-   ```
+Validations & error handling
 
-3. Update `app/build.gradle.kts` with signing config
+## Technology Stack
+Frontend
 
-4. Build release APK:
-   ```bash
-   ./gradlew assembleRelease
-   ```
+Kotlin
+
+Jetpack Compose / XML Layouts
+
+Android Jetpack (ViewModel, LiveData, Room, Navigation)
+
+Backend
+
+Node.js REST API
+
+Firebase Admin SDK
+
+PostgreSQL / Firestore / MongoDB (your choice)
+
+Hosted on Render.com
+
+Cloud
+
+Firebase Authentication
+
+Firebase Cloud Messaging
+
+Firebase Storage (optional)
+
+Tools
+
+GitHub Actions
+
+Postman
+
+Android Studio
+
+Gradle
+
+## System Architecture
+Android App (Kotlin)
+        ↓
+REST API (Node.js + Express)
+        ↓
+Database (PostgreSQL / Firestore)
+        ↓
+Firebase Services (Auth + Notifications)
+
+## API Integration
+
+The Android app communicates with the hosted API via Retrofit.
+
+Base URL
+https://<your-api-name>.onrender.com/api/
+
+Example Endpoint
+POST /auth/login
+GET /user/settings
+POST /sync/upload
+
+
+Authentication uses:
+
+Bearer JWT Token
+
+Firebase user tokens for SSO
+
+## Offline Mode & Sync
+
+All user changes are stored locally when offline.
+
+RoomDB caches data until connectivity is available.
+
+A sync worker uploads queued data to the API.
+
+## Push Notifications
+
+Using Firebase Cloud Messaging (FCM):
+
+API triggers notifications
+
+App receives messages in real time
+
+Channel support for Android 13+
+
+## Multi-Language Support
+
+Implemented through Android strings.xml files:
+
+values/strings.xml           → English  
+values-zu/strings.xml        → isiZulu  
+values-af/strings.xml        → Afrikaans (optional)
+
+
+The user selects the language in the Settings screen.
+
+## Installation Guide
+1. Clone Repo
+git clone https://github.com/<your-username>/<repo-name>.git
+
+2. Open in Android Studio
+3. Add your API Base URL in Retrofit config
+4. Build & Run on mobile device
+## Screenshots
+
+(Add your own here once the UI is finished.)
+
+Example placeholders:
+
+Login Screen
+
+Dashboard
+
+Settings Page
+
+API Data Display
+
+Offline Mode View
+
+## Automated Testing (GitHub Actions)
+
+This repository includes automated CI workflows:
+
+Builds the Android app
+
+Runs unit tests
+
+Ensures API integration doesn’t break
+
+Workflow file example:
+
+.github/workflows/build.yml
 
 ## Release Notes
+Version 1.0.0 – Final POE Submission
 
-### Version 1.0.0 (Initial Release)
-- ✅ User registration and login with SSO
-- ✅ Biometric authentication support
-- ✅ Offline mode with RoomDB synchronization
-- ✅ Push notifications via FCM
-- ✅ Multi-language support (English, isiZulu, Afrikaans)
-- ✅ QR code attendance scanning
-- ✅ Timetables, Announcements, Assignments, Attendance tracking
-- ✅ Network hub for campus communication
-- ✅ Settings screen with theme and language options
-- ✅ GPS location services integration
+Added biometric authentication
 
-## Contributing
+Added offline mode with RoomDB
 
-This is a POE (Portfolio of Evidence) project. For contributions or questions, please contact the development team.
+Added FCM push notifications
 
-## License
+Added multi-language support
 
-This project is developed for educational purposes as part of a Portfolio of Evidence submission.
+Completed API hosting & integration
 
-## Acknowledgments
+Improved UI
 
-- Material Design Components
-- Firebase
-- AndroidX Libraries
-- ZXing for QR code support
+Added GitHub Actions automated tests
 
----
+Prepared assets for Play Store publishing
 
-**Developed for POE Submission**
-**UniSync - Connecting University Communities**
+## How AI Was Used
+
+AI tools such as ChatGPT were used responsibly for:
+
+Debugging API deployment
+
+Generating placeholder UI text
+
+Assisting with documentation refinement
+
+Providing examples of Kotlin code patterns
+
+Generating JSON and environment variable formatting
+
+All AI usage has been cited according to POE requirements.
 
